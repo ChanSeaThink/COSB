@@ -64,7 +64,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'COSB',
         'USER': 'root',
-        'PASSWORD': '010203456',
+        'PASSWORD': '123456',
     }
 }
 

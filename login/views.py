@@ -12,7 +12,7 @@ def hello(request):
     return HttpResponse('Hello World')
 
 def login(request):
-    return render_to_response('login.html')
+    return render_to_response('login.html', {'error':''})
 
 def getCAPTCHA(request):
     sh = sha1()
@@ -66,4 +66,5 @@ def getCAPTCHA(request):
     im = im.transform((120,42), Image.PERSPECTIVE, params) # 创建扭曲
     buf = cStringIO.StringIO()
     im.save(buf, 'gif')
+    request.session['CAPTCHA'] = code
     return HttpResponse(buf.getvalue(), 'image/gif')

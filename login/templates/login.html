@@ -13,7 +13,9 @@
 <body>
     <div id="login_box">
         <p id="box_head">Blog后台登录</p>
+        {% if error %}
         <div id="caution">登录失败，错误的用户名或密码</div>
+        {% endif %}
         <form action="" method="get">
             <div class="account box">
                 <img src="{% static "img/user_account.png" %}">
