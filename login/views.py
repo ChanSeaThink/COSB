@@ -66,5 +66,4 @@ def getCAPTCHA(request):
     im = im.transform((120,42), Image.PERSPECTIVE, params) # 创建扭曲
     buf = cStringIO.StringIO()
     im.save(buf, 'gif')
-    #buf.seek(0)
     return HttpResponse(buf.getvalue(), 'image/gif')
