@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>登录页</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+{% load staticfiles %}
+<link href="{% static "css/blog_login.css" %}" rel="stylesheet">
+<script src="{% static "js/blog_login.js" %}"></script>
+</head>
+<body>
+    <div id="login_box">
+        <p id="box_head">Blog后台登录</p>
+        <div id="caution">登录失败，错误的用户名或密码</div>
+        <form action="" method="get">
+            <div class="account box">
+                <img src="{% static "img/user_account.png" %}">
+                <input type="text" placeholder="账户" />
+            </div>
+            <div class="account box" id="password">
+                <img src="{% static "img/lock.png" %}">
+                <input type="password" placeholder="密码" />
+            </div>
+            <div id="check" class="box">
+                <input type="text" placeholder="验证码" />
+                <img onclick="this.setAttribute('src','/getCAPTCHA/?nocache='+Math.random());" src="/getCAPTCHA" id="code">
+                <p><a id="code_request">看不清楚？换一张</a></p>
+            </div>
+            <div class="box">
+                <input id="login_button" type="submit" value="登录">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
