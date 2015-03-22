@@ -7,6 +7,8 @@ from hashlib import sha1
 from datetime import datetime
 import cStringIO
 
+from login.forms import registForm
+
 # Create your views here.
 def hello(request):
     return HttpResponse('Hello World')
@@ -68,3 +70,13 @@ def getCAPTCHA(request):
     im.save(buf, 'gif')
     request.session['CAPTCHA'] = code
     return HttpResponse(buf.getvalue(), 'image/gif')
+
+def regist(request):
+    if request.method == 'POST':
+        form =registForm(request.POST)
+        if form.is_valid():
+        	registData = form.clean_data
+            return HttpResponse('ok')
+    else:
+        form = registForm()
+    return render_to_response('regist.html',{'form':form})
