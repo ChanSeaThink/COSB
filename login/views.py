@@ -20,7 +20,10 @@ def login(request):
         username = request.POST['username']
         password = request.POST['password']
         valicode = request.POST['valicode']
-        userInfo_data = userInfo.objects.get(username = username)
+        try:
+            userInfo_data = userInfo.objects.get(username = username)
+        except userInfo.DoesNotExist:
+            return render_to_response('login.html', {'error':'y','tips':'用户名不存在'})
         password_db = userInfo_data.password
         createtime_db = userInfo_data.createtime
         sh = sha1()
