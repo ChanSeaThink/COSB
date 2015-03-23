@@ -16,8 +16,7 @@ def hello(request):
     return HttpResponse('Hello World')
 
 def login(request):
-    error = ''#控制报错区域显示隐藏的Flag
-    if request.method == 'POST':
+    if request.method == 'POST'and request.POST['username'] != '' and request.POST['password'] !='':
         username = request.POST['username']
         password = request.POST['password']
         valicode = request.POST['valicode']
@@ -26,20 +25,30 @@ def login(request):
         createtime_db = userInfo_data.createtime
         sh = sha1()
         sh.update(password + str(createtime_db)[0:19])
-        sh1 = sha1()
-        sh1.update(valicode)
-        if sh1.hexdigest() == request.session['CAPTCHA']:
+
+        try:
+            request.session['CAPTCHA']
+        except KeyError:
+            return render_to_response('login.html', {'error':''}) 
+          
+        if valicode == request.session['CAPTCHA']:
+            print 'hello'
             if sh.hexdigest() == password_db:
+                del request.session['CAPTCHA']
+                request.session['nickname'] = userInfo_data.nickname
                 return HttpResponse('登录成功!')
             else:
-                return HttpResponse('密码错误!')
+                return render_to_response('login.html', {'error':'Y', 'tips': '登录失败,用户名或密码', 'username':username, 'password':password})
         else:
-            error = 'Y'
-            
+            return render_to_response('login.html', {'error':'Y', 'tips': '登录失败,验证码错误', 'username':username, 'password':password})
+            #登录失败，错误的用户名或密码
         #print str(createtime_db)[0:19]
         #print password_db
         #print sh.hexdigest()
-    return render_to_response('login.html', {'error':error})
+    elif request.method == 'POST':
+        return render_to_response('login.html', {'error':'y','tips':'用户名和密码不能为空'})
+    else:
+        return render_to_response('login.html', {'error':''})
     #username = request.POST.get('username','unknown')可以设置默认的方法。
     #password = request.POST.get('password','unknown')
     #print username
@@ -102,6 +111,8 @@ def getCAPTCHA(request):
     buf = cStringIO.StringIO()
     im.save(buf, 'gif')
     request.session['CAPTCHA'] = code
+    #print code
+    #print request.session['CAPTCHA']
     return HttpResponse(buf.getvalue(), 'image/gif')
 
 def regist(request):
@@ -128,7 +139,7 @@ def regist(request):
                 userDataObj.save()
                 return HttpResponse('ok')
             else:
-                return HttpResponse('两次密码不想等。')
+                return HttpResponse('两次密码不相同。')
     else:
         form = registForm()
     return render_to_response('regist.html',{'form':form})

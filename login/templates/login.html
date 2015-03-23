@@ -14,16 +14,16 @@
     <div id="login_box">
         <p id="box_head">Blog后台登录</p>
         {% if error %}
-        <div id="caution">登录失败，错误的用户名或密码</div>
+        <div id="caution">{{ tips }}</div>
         {% endif %}
         <form action="" method="post">
             <div class="account box">
                 <img src="{% static "img/user_account.png" %}">
-                <input type="text" name="username" placeholder="账户" />
+                <input type="text" name="username" placeholder="账户" value = "{{ username }}"/>
             </div>
             <div class="account box" id="password">
                 <img src="{% static "img/lock.png" %}">
-                <input type="password" name ="password" placeholder="密码" />
+                <input type="password" name ="password" placeholder="密码" value = "{{ password }}"/>
             </div>
             <div id="check" class="box">
                 <input name="valicode" type="text" placeholder="验证码" />
