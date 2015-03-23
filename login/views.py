@@ -4,21 +4,55 @@ from django.http import HttpResponse
 
 import Image, ImageDraw, ImageFont, ImageFilter, random
 from hashlib import sha1
+
 from datetime import datetime
 import cStringIO
 
 from login.forms import registForm
+from login.models import userInfo
 
 # Create your views here.
 def hello(request):
     return HttpResponse('Hello World')
 
 def login(request):
-    return render_to_response('login.html', {'error':''})
+    error = ''#控制报错区域显示隐藏的Flag
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        valicode = request.POST['valicode']
+        userInfo_data = userInfo.objects.get(username = username)
+        password_db = userInfo_data.password
+        createtime_db = userInfo_data.createtime
+        sh = sha1()
+        sh.update(password + str(createtime_db)[0:19])
+        sh1 = sha1()
+        sh1.update(valicode)
+        if sh1.hexdigest() == request.session['CAPTCHA']:
+            if sh.hexdigest() == password_db:
+                return HttpResponse('登录成功!')
+            else:
+                return HttpResponse('密码错误!')
+        else:
+            error = 'Y'
+            
+        #print str(createtime_db)[0:19]
+        #print password_db
+        #print sh.hexdigest()
+    return render_to_response('login.html', {'error':error})
+    #username = request.POST.get('username','unknown')可以设置默认的方法。
+    #password = request.POST.get('password','unknown')
+    #print username
+    #print password
+    #userInfo_list = userInfo.objects.all()
+    #userInfo获取所有数据
+    #userInfo_list = userInfo.objects.all()获取数据表下的所有数据。
+    #print userInfo_list[0].nickname 此注释代码可以在终端显示从mysql读出的utf8编码的数据。__unicode__无法读取中文。
+    #users = userInfo.objects.filter(username__exact=username,password__exact=password)直接做匹配的写法。
 
 def getCAPTCHA(request):
     sh = sha1()
-    sh_src = sh.update(str(datetime.now()))
+    sh.update(str(datetime.now()))
     sh_src = sh.hexdigest()
     code = sh_src[0:4]
     #string = {'number':'12345679','litter':'ACEFGHKMNPRTUVWXY'}
@@ -34,7 +68,6 @@ def getCAPTCHA(request):
     im = Image.new('RGB',(img_width,img_height),background)
     draw = ImageDraw.Draw(im)
     #code = random.sample(string['litter'],4)
-    #code = u'调和社会'
     #新建画笔
     draw = ImageDraw.Draw(im)
     #干扰点(70表示30%的概率)
@@ -75,8 +108,27 @@ def regist(request):
     if request.method == 'POST':
         form =registForm(request.POST)
         if form.is_valid():
-        	registData = form.clean_data
-            return HttpResponse('ok')
+            registData = form.cleaned_data
+            #print registData['username']
+            #print registData['password']
+            #print registData['password2']
+            #print registData['nickname']
+            if registData['password'] == registData['password2']:
+                nt = datetime.now()
+                #print nt
+                shpw = sha1()
+                shpw.update(registData['password'] + str(nt)[0:19])#
+                #print str(nt)[0:19]
+                pw = shpw.hexdigest()
+                userDataObj = userInfo()
+                userDataObj.username = registData['username']
+                userDataObj.password = pw
+                userDataObj.nickname = registData['nickname']
+                userDataObj.createtime = nt
+                userDataObj.save()
+                return HttpResponse('ok')
+            else:
+                return HttpResponse('两次密码不想等。')
     else:
         form = registForm()
     return render_to_response('regist.html',{'form':form})
