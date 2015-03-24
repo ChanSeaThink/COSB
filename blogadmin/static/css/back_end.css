@@ -10,7 +10,7 @@
 		width:65px;
 		height:100%;
 		background-color: #414141;
-		z-index:999;
+		z-index:9;
 	}
 	#sidebar li {
 		cursor:pointer;
@@ -447,19 +447,27 @@
 		border:none;
 		overflow-y:hidden;
 	}
+	#popup {
+		display:none;
+	}
 	#popup_bottom {
+		position:absolute;
+		top:0;
+		left:0;
 		width:100%;
 		height:100%;
 		background-color:#414141;
 		opacity:0.4;
+		z-index:99;
 	}
-	#popup {
+	#popup_top {
 		position:fixed;
 		left:50%;
 		top:50%;
 		margin:-150px 0 0 -174.5px;
+		z-index:100;
 	}
-	#popup>div {
+	#popup_top>div {
 		display:none;
 		width:420px;
 		height:300px;
@@ -467,7 +475,7 @@
 		background-color:white;
 		box-shadow:0 0 5px #a1a1a1;
 	}
-	#popup>div>h2 {
+	#popup_top>div>h2 {
 		margin-top:35px;
 		text-align:center;
 		color:#414141;
@@ -495,7 +503,7 @@
 	.link input:focus {
 		outline:none;
 	}
-	#popup>div>p {
+	#popup_top>div>p {
 		float:right;
 		margin-top:15px;
 		color:#a1a1a1;

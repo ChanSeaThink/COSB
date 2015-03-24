@@ -56,12 +56,14 @@ window.onload=function(){
         var lctup=document.getElementById("lctup");
         var itnup=document.getElementById("itnup");
         left[1].onclick=function(){
+            popup.style.display="block";
             picbox.style.display="none";
             itnpic.style.display="none";
             lctpic.style.display="block";
             linkbox.style.display="block";
         }
         left[2].onclick=function(){
+            popup.style.display="block";
             linkbox.style.display="none";
             picbox.style.display="block";
         }
@@ -77,9 +79,11 @@ window.onload=function(){
 
         var popupcancel=document.getElementsByClassName("popup_cancel");
         popupcancel[0].onclick=function(){
+            popup.style.display="none";
             linkbox.style.display="none";
         }
         popupcancel[1].onclick=function(){
+            popup.style.display="none";
             picbox.style.display="none";
         }
 
