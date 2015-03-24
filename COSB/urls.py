@@ -5,4 +5,5 @@ urlpatterns = patterns('',
     url(r'^login$','login.views.login'),
     url(r'^getCAPTCHA','login.views.getCAPTCHA'),
     url(r'^regist$','login.views.regist'),
+    url(r'^back$','blogadmin.views.back'),
 )

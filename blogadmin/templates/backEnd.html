@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>后台页</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+{% load staticfiles %}
+<link href="{% static "css/back_end.css" %}" rel="stylesheet">
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js">
+</script>
+</head>
+<body>
+    <div id="sidebar">
+        <ul>
+            <li class="nav navup" id="nav_top">静</li>
+            <li class="nav navup" id="backwards">
+                <img src="{% static "img/back_white.png" %}">
+            </li>
+            <li class="nav navup">
+                <img src="{% static "img/home.png" %}"/>
+            </li>
+            <li class="nav navup">
+                <img src="{% static "img/clock_white.png" %}" />
+                <div>
+                    <ul>
+                        <li><a href="">2014-01 (0)</a></li>
+                        <li><a href="">2014-02 (0)</a></li>
+                        <li><a href="">2014-03 (0)</a></li>
+                        <li><a href="">2014-04 (0)</a></li>
+                        <li><a href="">2014-05 (0)</a></li>
+                        <li><a href="">2014-06 (0)</a></li>
+                        <li><a href="">2014-07 (0)</a></li>
+                        <li><a href="">2014-08 (0)</a></li>
+                        <li><a href="">2014-09 (0)</a></li>
+                        <li><a href="">2014-10 (0)</a></li>
+                        <li><a href="">2014-11 (0)</a></li>
+                        <li><a href="">2014-12 (0)</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav navup">
+                <img src= "{% static "img/menu_white.png" %}" />
+                <div>
+                    <ul>
+                        <li><a href="">Js (0)</a></li>
+                        <li><a href="">Html5 (0)</a></li>
+                        <li><a href="">JQuery (0)</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav navup">
+                <img src= "{% static "img/pencil.png" %}"/>
+            </li>
+            <li class="nav navup">
+                <img src= "{% static "img/table.png" %}"/>
+            </li>
+            <li class="nav" id="nav_end">
+                <img src= "{% static "img/up.png" %}"/>
+            </li>
+        </ul>
+    </div>
+    <div id="title">
+           <div id="formula_bar">
+            <ul>
+                <li class="nav2_right" id="article_pub">
+                    <img src= "{% static "img/redo.png" %}"/>
+                    <div>发布文章</div>
+                </li>
+                <li class="nav2_right" id="article_edit">
+                    <img src= "{% static "img/pencil.png" %}"/>
+                    <div>编辑</div>
+                </li>
+                <li class="nav2 nav2_right">
+                    <img src= "{% static "img/menu_white2.png" %}" />
+                    <div id="article_type">
+                        <ul>
+                            <li class="type">前端</li>
+                            <li class="type">Python</li>
+                            <li class="type">C++</li>
+                            <li class="type">产品</li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav2_right">
+                    <div id="what_type"></div>
+                </li>
+                <li class="nav2 nav2_left">
+                    <img src="{% static "img/embed.png" %}"/>
+                </li>
+                <li class="nav2 nav2_left">
+                    <img src="{% static "img/link.png" %}"/>
+                </li>
+                <li class="nav2 nav2_left">
+                    <img src="{% static "img/image.png" %}"/>
+                </li>
+                <p class="clear"></p>
+            </ul>
+        </div>
+        <div id="title_top">
+            <div id="logout">退出</div>
+            <div id="salutatory" name="welcome">
+                <span>欢迎回来：</span>
+                <span name="username">XX</span>
+            </div>
+            <div id="back_end"><b>Blog后台</b></div>
+            <div class="about_me" id="about_me2">About Me</div>
+            <input class="search" id="search2" type="text" placeholder="搜索"/>
+        </div>
+    </div>
+    <div id="main">
+        <div class="fill"></div>
+        <ul id="content">
+            <li>
+                <h1 class="article_entrance">标题1</h1>
+                <p class="else">
+                    <p class="count">
+                        <img src="{% static "img/comment.png" %}"/>10
+                        <img src="{% static "img/eye.png"%}" />8
+                    </p>
+                    <p id="date">2014-3-12</p>
+                    <a href="">Javascript</a>>><a href="">Canvas</a>
+                </p>
+            </li>
+            <li>
+                <h1 class="article_entrance">标题2</h1>
+                <p class="else">
+                    <p class="count">
+                        <img src="{% static "img/comment.png"%}"/>10
+                        <img src="{% static "img/eye.png"%}" />8
+                    </p>
+                    <p id="date">2014-3-12</p>
+                    <a href="">Javascript</a>>><a href="">Canvas</a>
+                </p>
+            </li>
+            <li>
+                <h1 class="article_entrance">标题3</h1>
+                <p class="else">
+                    <p class="count">
+                        <img src="{% static "img/comment.png"%}"/>10
+                        <img src="{% static "img/eye.png"%}" />8
+                    </p>
+                    <p id="date">2014-3-12</p>
+                    <a href="">Javascript</a>>><a href="">Canvas</a>
+                </p>
+            </li>
+            <li>
+                <h1 class="article_entrance">标题4</h1>
+                <p class="else">
+                    <p class="count">
+                        <img src="{% static "img/comment.png"%}"/>10
+                        <img src="{% static "img/eye.png"%}"/>8
+                    </p>
+                    <p id="date">2014-3-12</p>
+                    <a href="">Javascript</a>>><a href="">Canvas</a>
+                </p>
+            </li>
+            <li>
+                <h1 class="article_entrance">标题5</h1>
+                <p class="else">
+                    <p class="count">
+                        <img src="{% static "img/comment.png"%}" />10
+                        <img src="{% static "img/eye.png"%}" />8
+                    </p>
+                    <p id="date">2014-3-12</p>
+                    <a href="">Javascript</a>>><a href="">Canvas</a>
+                </p>
+            </li>
+            <li>
+                <h1 class="article_entrance">标题6</h1>
+                <p class="else">
+                    <p class="count">
+                        <img src="{% static "img/comment.png"%}" />10
+                        <img src="{% static "img/eye.png"%}" />8
+                    </p>
+                    <p id="date">2014-3-12</p>
+                    <a href="">Javascript</a>>><a href="">Canvas</a>
+                </p>
+            </li>
+            <li>
+                <h1 class="article_entrance">标题7</h1>
+                <p class="else">
+                    <p class="count">
+                        <img src="{% static "img/comment.png"%}" />10
+                        <img src="{% static "img/eye.png"%}" />8
+                    </p>
+                    <p id="date">2014-3-12</p>
+                    <a href="">Javascript</a>>><a href="">Canvas</a>
+                </p>
+            </li>
+            <li>
+                <h1 class="article_entrance">标题8</h1>
+                <p class="else">
+                    <p class="count">
+                        <img src="{% static "img/comment.png"%}" />10
+                        <img src="{% static "img/eye.png"%}" />8
+                    </p>
+                    <p id="date">2014-3-12</p>
+                    <a href="">Javascript</a>>><a href="">Canvas</a>
+                </p>
+            </li>
+        </ul>
+        <div class="fill"></div>
+        <div id="more">点击查看更多</div>
+    </div>
+    <div id="main1">
+        <div class="fill"></div>
+        <div id="content">
+            <div id="article">
+                <h1 id="article_title">About Me</h1>
+                <p id="article_data">2015.03.12&nbsp;&nbsp;19:53&emsp;2417字&emsp;800次阅读</p>
+                <div id="text">
+                    <p>如我所说，智能手机的中端设备已经死了。这情形和PC时代别无二致。</p>
+                    <p>当一个领域被统一模版垄断以后，恶性竞争下只会剩下一片狼藉和低端设备。</p>
+                    <p>如果汽车发动机等主要构件都来自一个汽车厂商，可以想象用不了多久，汽车行业也会像android手机一样，陷入人人都可以生产，“性价比”战争里面。最后除了能够自主生产的汽车企业，其他汽车不仅会恶性竞争，而且还会把原有的中端设备打压下去，最后，薄利多销换来的是，中端设备企业因为利润被打压，无力研发新产品，最后，整个行业的生态系统被破坏。</p>
+                    <p>破坏以后，该行业就沦为基础生产行业。就好比钉子生产厂商一样。</p>
+                    <p>这么说或许有些夸张，但看看PC行业的发展，我们就会了解智能手机发展的未来。</p>
+                    <p>PC自苹果开始繁荣，随即巨头IBM宣布进入市场。在参与竞争的过程中，微软成为最后的赢家。</p>
+                    <p>大家一直在讨论封闭和开放的利弊，证据就是PC市场。但在我看来，这个证据恰恰相反，证明了开放的市场中，软件才是真正的赢家。而如果苹果不是一家软件公司的话，它也早就覆灭了。（苹果一直是一家软件公司，这个将会在以后论述）</p>
+                    <p>IBM在繁荣了PC市场20年后，就宣布退出PC机市场，作为开放市场的力推者，这算成功还是失败？康柏被收购、戴尔私有化、索尼退出PC市场……主导开放的先驱们已经成为先烈，高端机变成了配置的比拼，中端设备彻底消失，于是，就只剩下低端设备。</p>
+                    <p>我们可以描述得再激烈一些，PC市场没有了高中端设备，只有低端设备的不同配置版本。以前，索尼还会带给PC市场关于美学和设计的教育普及，略微的为PC增色。</p>
+                    <p>要不是苹果坚持了最好的软件一定要自己做硬件，苹果也早就成为先烈了。苹果公司的幸存，使得桌面时代有了属于自己的高端设备。也成为了“一直被模仿、从未被超越”的模范代表。但即便如此，在同一内核的激烈竞争下，通过对苹果的迅速模仿，以及比拼配置的“性价比”战略，低端机很容易就把中端设备击溃。最终，市场呈现出高端有苹果，低端有PC，中间设备只是比拼设备硬件设备参数和配置的文字游戏而已。</p>
+                    <p>对比上述论述，各位可能很容易理解我要说的话：智能手机市场，中端设备也将会死亡。</p>
+                    <p>高端设备有苹果，低端设备有安卓，中间设备，只是低端设备的硬件参数高配版。</p>
+                    <p>因为在一家软件商掌控的情况下，安卓手机商的选择只有提高品牌溢价、或者降低成本、或者在手机生产以外赚钱。</p>
+                    <p>1、提高品牌溢价。三星算是其中之一。戴着最大智能手机生产商的帽子，它对通信商以及产业链有足够的议价权。但这样做势必提高营销成本，而且对于小的安卓手机商根本无力支付品牌建设费用。由于行业竞争，品牌支出越来越高，但利润率越来越薄，你猜后来会怎么着？</p>
+                    <p>2、降低生产成本。规模化生产、预售模式、中国生产力都是手段，亚洲企业在PC行业就是这样打败欧美巨头，在智能手机上也不会有例外。看看摩托罗拉未来的脱困方式，一定和联想消化IBM一样。</p>
+                    <p>3、手机生产以外赚钱。据说小米就是这么做的。我不确定这么做是不是可行。如果三星和苹果也都这么做，是不是它们才更有优势？当然这不是本次指尖儿撰稿人要讨论的话题。</p>
+                    <p>无论哪种，最终结果都是，不断挤压生产商的利润空间。由于安卓智能手机的魂魄在谷歌手中，无差异化才是谷歌的目标，创新也就不会被谷歌所待见。中端设备之死也就是必然。</p>
+                    <p>这样的情形下，谷歌的基本目的，甚至比当年微软更甚更直接：它一定会照顾到最广泛的用户需求，以便维护自己的利益，而非帮助厂商提高各自的独特用户体验。</p>
+                    <p>只是，没有了中端设备，安卓手机制造商也就失去了进化的方向和可能。</p>
+                </div>
+            </div>
+            <div id="comments_area">
+                <div>
+                    <img src="">
+                    <p id="username">多啦A梦</p>
+                    <p id="time">2015.03.12&nbsp;&nbsp;21:10</p>
+                    <div><p>苹果和微软不过如此…楼猪有了开源安卓这世界才怎么疯狂…这就是力量，苹果硬件跟不上咯</p></div>
+                    <p class="clear"></p>
+                </div>
+                <div>
+                    <img src="">
+                    <p id="username">多啦A梦</p>
+                    <p id="time">2015.03.12&nbsp;&nbsp;21:10</p>
+                    <div>苹果和微软不过如此…楼猪有了开源安卓这世界才怎么疯狂…这就是力量，苹果硬件跟不上咯</div>
+                    <p class="clear"></p>
+                </div>
+                <div>
+                    <img src="">
+                    <p id="username">多啦A梦</p>
+                    <p id="time">2015.03.12&nbsp;&nbsp;21:10</p>
+                    <div>苹果和微软不过如此…楼猪有了开源安卓这世界才怎么疯狂…这就是力量，苹果硬件跟不上咯</div>
+                    <p class="clear"></p>
+                </div>
+            </div>
+            <div id="page">
+                <div id="first">1</div>
+                <div>2</div>
+                <div>下一页</div>
+                <div id="last">终页</div>
+            </div>
+            </div>
+        <div class="fill"></div>
+    </div>
+    <div id="main2">
+        <div id="content2">
+            <div>
+                <textarea id="write_title" rows=1 maxlength="50"></textarea>
+                <textarea id="write_text" maxlength="10000"></textarea>
+            </div>
+        </div>
+    </div>
+    <div id="main3">
+        <div>
+            <ul>
+                <li>文章</li>
+                <li>评论</li>
+                <li>类别</li>
+                <li>账户</li>
+                <p class="clear"></p>
+            </ul>
+        </div>
+        <div>
+            <div id="condition">
+                <div class="table_button">确认</div>
+                <div class="table_button">清除</div>
+                <table>
+                    <tr>
+                        <td width="7%">
+                            <input type="checkbox" />
+                        </td>
+                        <td width="18%">
+                            <select>
+                                <option>标题</option>
+                                <option>创建时间</option>
+                                <option>用户昵称</option>
+                                <option>邮箱</option>
+                                <option>评论</option>
+                            </select>
+                        </td>
+                        <td width="18%">
+                            <select>
+                                <option>等于</option>
+                                <option>在…之间</option>
+                                <option>是</option>
+                                <option></option>
+                                <option></option>
+                            </select>
+                        </td>
+                        <td width="27%">1</td>
+                        <td width="27%">1</td>
+                        <td>1</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div>
+            <div class="table_button">删除</div>
+            <div class="table_button">编辑</div>
+            <div class="table_button">增加</div>
+            <table id="article_table">
+                <tr>
+                    <th width="11%">序号</th>
+                    <th width="22%">标题</th>
+                    <th width="13%">创建时间</th>
+                    <th width="10%">阅读数</th>
+                    <th width="10%">评论数</th>
+                    <th width="10%">字数</th>
+                    <th width="12%">父类</th>
+                    <th width="12%">子类</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td title="这个标题很长很长你怕不怕怕不怕？">这个标题很长很长你怕不怕怕不怕？</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr class="even">
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr class="even">
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+            </table>
+            <table id="comments_table">
+                <tr>
+                    <th width="6%">操作</th>
+                    <th width="6%">序号</th>
+                    <th width="16%">文章标题</th>
+                    <th width="28%">评论</th>
+                    <th width="12%">用户昵称</th>
+                    <th width="15%">邮箱</th>
+                    <th>创建时间</th>
+                </tr>
+            </table>
+            <table id="type_table1">
+                <tr>
+                    <th width="15%">操作</th>
+                    <th width="15%">序号</th>
+                    <th width="30%">父类名</th>
+                    <th width="20%">文章数</th>
+                    <th>子类数量</th>
+                </tr>
+            </table>
+            <table id="type_table2">
+                <tr>
+                    <th width="15%">操作</th>
+                    <th width="15%">序号</th>
+                    <th width="25%">父类名</th>
+                    <th width="25%">子类名</th>
+                    <th width="20%">文章数</th>
+                </tr>
+            </table>
+            <table id="account_table">
+                <tr>
+                    <th width="9%">操作</th>
+                    <th width="12%">序号</th>
+                    <th width="26%">帐号</th>
+                    <th width="26%">昵称</th>
+                    <th>创建时间</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id="popup_bottom">
+        <div id="popup">
+            <div id="link_box">
+                <h2>插入链接</h2>
+                <div class="link">
+                    <img src="{% static "img/link.png"%}"/>
+                    <input type="text" placeholder="链接地址" />
+                </div>
+                <div class="link">
+                    <img src="{% static "img/font.png"%}"/>
+                    <input type="text" placeholder="链接文本" />
+                </div>
+                <p class="popup_confirm">确认</p>
+                <p class="popup_cancel">取消</p>
+            </div>
+            <div id="pic_box">
+                <h2>插入图片</h2>
+                <div>
+                    <p id="lctup"><b>本地上传</b></p>
+                    <p>或</p>
+                    <p id="itnup"><b>网络图片</b></p>
+                    <div class="clear"></div>
+                </div>
+                <div id="lctpic" class="clear">选择图片上传</div>
+                <div class="link" id="itnpic">
+                    <img src="{% static "img/link.png"%}" />
+                    <input type="text" placeholder="图片链接" />
+                </div>
+                <p class="popup_confirm">确认</p>
+                <p class="popup_cancel">取消</p>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        //根据窗口大小调整页面布局
+        var main=document.getElementById("main");
+        var main1=document.getElementById("main1");
+        var main2=document.getElementById("main2");
+        var main3=document.getElementById("main3");
+        var fill=document.getElementsByClassName("fill");
+      var content2=document.getElementById("content2");
+      var formulabar=document.getElementById("formula_bar");
+      var titletop=document.getElementById("title_top");
+      var popup=document.getElementById("popup");
+        var base=document.body.clientWidth;
+        titletop.style.width=base-65+"px";
+        fill[0].style.width=(base-65-600)/2+"px";
+        fill[1].style.width=(base-65-600)/2+"px";
+        //main.style.height=document.body.scrollHeight-115+"px";
+        main1.style.minHeight=window.innerHeight-150+"px";
+        main2.style.minHeight=window.innerHeight-150+"px";
+        window.onresize=function(){
+            base=document.body.clientWidth;
+            formulabar.style.width=base-65+"px";
+            titletop.style.width=base-65+"px";
+            main2.style.width=base-65+"px";
+            main3.style.width=base-65+"px";
+            fill[0].style.width=(base-65-600)/2+"px";
+            fill[1].style.width=(base-65-600)/2+"px";
+            fill[2].style.width=(base-65-600)/2+"px";
+            fill[3].style.width=(base-65-600)/2+"px";
+            if(base-65<600){
+                //title.style.width=base-65+"px";
+                content2.style.width=base-65+"px";
+            }
+        }
+        //拉动条影响的可视窗口变化
+        function resize(anchor){
+            base=document.body.clientWidth;
+            formulabar.style.width=base-65+"px";
+            titletop.style.width=base-65+"px";
+            main2.style.width=base-65+"px";
+            main3.style.width=base-65+"px";
+            fill[0].style.width=(base-65-600)/2+"px";
+            fill[1].style.width=(base-65-600)/2+"px";
+            fill[2].style.width=(base-65-600)/2+"px";
+            fill[3].style.width=(base-65-600)/2+"px";
+            if(!anchor){window.scrollTo(0,0)}
+            else window.scrollTo(0,anchor);
+        }
+
+        //编辑栏功能
+        var left=document.getElementsByClassName("nav2_left");
+        var linkbox=document.getElementById("link_box");
+        var picbox=document.getElementById("pic_box");
+
+        var lctpic=document.getElementById("lctpic");
+        var itnpic=document.getElementById("itnpic");
+        var lctup=document.getElementById("lctup");
+        var itnup=document.getElementById("itnup");
+        left[1].onclick=function(){
+            picbox.style.display="none";
+            itnpic.style.display="none";
+            lctpic.style.display="block";
+            linkbox.style.display="block";
+        }
+        left[2].onclick=function(){
+            linkbox.style.display="none";
+            picbox.style.display="block";
+        }
+
+        lctup.onclick=function(){
+            itnpic.style.display="none";
+            lctpic.style.display="block";
+        }
+        itnup.onclick=function(){
+            lctpic.style.display="none";
+            itnpic.style.display="block";
+        }
+
+        var popupcancel=document.getElementsByClassName("popup_cancel");
+        popupcancel[0].onclick=function(){
+            linkbox.style.display="none";
+        }
+        popupcancel[1].onclick=function(){
+            picbox.style.display="none";
+        }
+
+        var nav2=document.getElementsByClassName("nav2");
+        var articletype=document.getElementById("article_type");
+        nav2[0].onmouseover=function(){
+            articletype.style.display="block";
+        }
+        nav2[0].onmouseout=function(){
+            articletype.style.display="none";
+        }
+        var type=document.getElementsByClassName("type");
+        var whattype=document.getElementById("what_type");
+        for(var i=0;i<type.length;i++){
+            type[i].onclick=function(){
+                for(var j=0;j<type.length;j++){
+                    type[j].style.backgroundColor="#e1e1e1";
+                }
+                this.style.backgroundColor="#414141";
+                whattype.style.display="block";
+                whattype.innerHTML=this.innerHTML;
+            }
+        }
+
+        //编辑修改文章
+        var articleedit=document.getElementById("article_edit");
+        var writetitle=document.getElementById("write_title");
+        var articletitle=document.getElementById("article_title");
+        var right=document.getElementsByClassName("nav2_right");
+        var text=document.getElementById("text");
+        articleedit.onclick=function(){
+            for(var i=0;i<left.length;i++){
+                left[i].style.display="inline";
+            }
+            for(var i=0;i<right.length;i++){
+                right[i].style.display="inline";
+            }
+            //此处需把文章的类型填入whattype.innerHTML中！
+            writetitle.value=articletitle.innerHTML;
+            var string=new String();
+            for(var i=1;i<text.childNodes.length;i+=2){
+                string+=text.childNodes[i].innerText+'\n';
+            }
+            writetext.value=string;
+            articleedit.style.display="none";
+            main1.style.display="none";
+            main2.style.display="inline-block";
+            nav[0].style.display="block";
+            nav[1].style.display="none";
+            writetext.style.height=writetext.scrollHeight+"px";
+            main2.style.height=writetext.scrollHeight+150+"px";
+            for(var j=0;j<type.length;j++){
+                type[j].style.backgroundColor="#e1e1e1";
+            }
+            whattype.style.display="none";
+            resize();
+            if(articletitle.innerHTML=="About Me"){
+                writetitle.readOnly=true;
+                right[2].style.display="none";
+                whattype.style.display="none";
+                whattype.innerHTML="";
+            }
+            else {
+                writetitle.readOnly=false;
+                whattype.innerHTML="";
+            }
+        }
+
+        //侧栏功能
+        var nav=document.getElementsByClassName("nav");
+        var anchor=0;
+        //文章页的返回
+        nav[1].onclick=function(){
+            main.style.display="block";
+            main1.style.display="none";
+            main2.style.display="none";
+            main3.style.display="none";
+            nav[0].style.display="block";
+            nav[1].style.display="none";
+            formulabar.style.display="none";
+            resize(anchor);
+        }
+        //转到写作页
+        nav[5].onclick=function(){
+            for(var i=0;i<left.length;i++){
+                left[i].style.display="inline";
+            }
+            for(var i=0;i<right.length;i++){
+                right[i].style.display="inline";
+            }
+            formulabar.style.display="block";
+            articleedit.style.display="none";
+            main.style.display="none";
+            main1.style.display="none";
+            main2.style.display="inline-block";
+            main3.style.display="none";
+            whattype.style.display="none";
+            nav[0].style.display="block";
+            nav[1].style.display="none";
+            writetitle.readOnly=false;
+            writetitle.value="";
+            writetext.value="";
+            writetext.style.height=writetext.scrollHeight+"px";
+            main2.style.height=writetext.scrollHeight+150+"px";
+            for(var j=0;j<type.length;j++){
+                type[j].style.backgroundColor="#e1e1e1";
+            }
+            resize();
+        }
+        //返回后台首页
+        nav[2].onclick=function(){
+            main.style.display="block";
+            formulabar.style.display="none";
+            main1.style.display="none";
+            main2.style.display="none";
+            main3.style.display="none";
+            nav[0].style.display="block";
+            nav[1].style.display="none";
+            resize();
+        }
+        //表格
+        nav[6].onclick=function(){
+            main.style.display="none";
+            main1.style.display="none";
+            main2.style.display="none";
+            main3.style.display="block";
+            formulabar.style.display="none";
+            $("#article_table").css({display:"inline-table"});
+            resize();
+        }
+        //回到顶部
+        nav[7].onclick=function(){
+            window.scrollTo(0,0);
+        }
+        nav[7].onmouseover=function(){
+            this.style.backgroundColor="#cccccc";
+        }
+        nav[7].onmouseout=function(){
+            this.style.backgroundColor="#e78170";
+            if(document.body.scrollTop==0)
+                this.style.backgroundColor="#414141";
+        }
+        window.onscroll=function(){
+            if(document.body.scrollTop!=0)
+                nav[7].style.backgroundColor="#e78170";
+            else
+                nav[7].style.backgroundColor="#414141";
+        }
+
+        //写作编辑框自动调整长度功能
+        var writetext=document.getElementById("write_text");
+        writetext.oninput=function(){
+            this.style.height=0+"px";
+            if(this.scrollHeight>this.offsetHeight){
+                this.style.height=this.scrollHeight+50+"px";
+                main2.style.height=this.scrollHeight+150+"px";
+                resize();
+                window.scrollTo(0,document.body.scrollHeight-20);
+                return;
+            }
+            this.style.height=this.scrollHeight+"px";
+            main2.style.height=this.scrollHeight+150+"px";
+            resize();
+            window.scrollTo(0,document.body.scrollHeight-20);
+        }
+
+        //aboutme功能
+        var aboutme=document.getElementById("about_me2");
+        aboutme.onclick=function(){
+            for(var i=0;i<left.length;i++){
+                left[i].style.display="none";
+            }
+            for(var i=0;i<right.length;i++){
+                right[i].style.display="none";
+            }
+            articleedit.style.display="inline";
+            main.style.display="none";
+            main1.style.display="block";
+            main2.style.display="none";
+            main3.style.display="none";
+            nav[0].style.display="block";
+            nav[1].style.display="none";
+            base=document.body.clientWidth;
+            //title.style.width=base-65+"px";
+            formulabar.style.display="block";
+            articletitle.innerText="About Me";
+            resize();
+        }
+
+        //文章入口
+        var articleentrance=document.getElementsByClassName("article_entrance");
+        for(var i=0;i<articleentrance.length;i++){
+            articleentrance[i].onclick=function(){
+                for(var i=0;i<left.length;i++){
+                    left[i].style.display="none";
+                }
+                for(var i=0;i<right.length;i++){
+                    right[i].style.display="none";
+                }
+                articleedit.style.display="inline";
+                formulabar.style.display="block";
+                main.style.display="none";
+                main1.style.display="block";
+                nav[0].style.display="none";
+                nav[1].style.display="block";
+                articletitle.innerText=this.innerText;
+                anchor=document.body.scrollTop;
+                resize();
+            }
+        }
+
+
+        $(document).ready(function(){
+            //main3导航滑动效果
+            $("#main3 li:eq(0)").click(function(){
+                $("#main3 ul p").animate({left:"12px"});
+                $("#article_table").css({display:"inline-table"});
+                $("#comments_table").css({display:"none"});
+                $("#type_table1").css({display:"none"});
+                $("#type_table2").css({display:"none"});
+                $("#account_table").css({display:"none"});
+            });
+            $("#main3 li:eq(1)").click(function(){
+                $("#main3 ul p").animate({left:"117px"});
+                $("#article_table").css({display:"none"});
+                $("#comments_table").css({display:"inline-table"});
+                $("#type_table1").css({display:"none"});
+                $("#type_table2").css({display:"none"});
+                $("#account_table").css({display:"none"});
+            });
+            $("#main3 li:eq(2)").click(function(){
+                $("#main3 ul p").animate({left:"222px"});
+                $("#article_table").css({display:"none"});
+                $("#comments_table").css({display:"none"});
+                $("#type_table1").css({display:"inline-table"});
+                $("#type_table2").css({display:"inline-table"});
+                $("#account_table").css({display:"none"});
+            });
+            $("#main3 li:eq(3)").click(function(){
+                $("#main3 ul p").animate({left:"327px"});
+                $("#article_table").css({display:"none"});
+                $("#comments_table").css({display:"none"});
+                $("#type_table1").css({display:"none"});
+                $("#type_table2").css({display:"none"});
+                $("#account_table").css({display:"inline-table"});
+            });
+        });
+    </script>
+</body>
+</html>
