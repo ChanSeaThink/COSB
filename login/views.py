@@ -3,10 +3,11 @@ from django.shortcuts import render_to_response
 from django.http import HttpResponse
 
 import Image, ImageDraw, ImageFont, ImageFilter, random
-from hashlib import sha1
 
+from hashlib import sha1
 from datetime import datetime
 import cStringIO
+import platform
 
 from login.forms import registForm
 from login.models import userInfo
@@ -75,14 +76,21 @@ def getCAPTCHA(request):
     font_color = ['black','red', 'blue', 'green', 'brown']
     point_color = ['red', 'blue', 'yellow', 'green', 'brown']
     font_size = 25
-    font = ImageFont.truetype('msyh.ttf',font_size)
+
+    nowsys = platform.system()
+    if nowsys == 'Darwin':
+        font = ImageFont.truetype('/Library/Fonts/Arial.ttf',font_size)
+    elif nowsys == 'Window':
+        font = ImageFont.truetype('Arial.ttf',font_size)
+    else:
+        return HttpResponse('system Error From getCAPTCHA---->nowsys')
     #新建画布
     im = Image.new('RGB',(img_width,img_height),background)
     draw = ImageDraw.Draw(im)
     #code = random.sample(string['litter'],4)
     #新建画笔
     draw = ImageDraw.Draw(im)
-    #干扰点(70表示30%的概率)
+    #干扰点(90表示10%的概率)
     for w in range(img_width):
         for h in range(img_height):
             tmp = random.randrange(1,100)
