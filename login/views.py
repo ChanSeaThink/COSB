@@ -80,7 +80,7 @@ def getCAPTCHA(request):
     nowsys = platform.system()
     if nowsys == 'Darwin':
         font = ImageFont.truetype('/Library/Fonts/Arial.ttf',font_size)
-    elif nowsys == 'Window':
+    elif nowsys == 'Windows':
         font = ImageFont.truetype('Arial.ttf',font_size)
     else:
         return HttpResponse('system Error From getCAPTCHA---->nowsys')
