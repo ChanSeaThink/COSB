@@ -10,6 +10,7 @@ class blogArticle(models.Model):
     blogtitle:文章标题。
     blogcontent:文章内容。
     readtimes:阅读次数。
+    commenttimes:评论次数。
     fatherclass:父类名字。
     childclass:子类名字。
     fontnum:字数。
@@ -20,6 +21,7 @@ class blogArticle(models.Model):
     blogtitle = models.CharField(max_length = 60)
     blogcontent = models.TextField()
     readtimes = models.IntegerField()
+    commenttimes = models.IntegerField(default = 0)
     fatherclass = models.CharField(max_length = 20, blank = True, null = True)
     childclass = models.CharField(max_length = 20, blank = True, null = True)
     fontnum = models.IntegerField()

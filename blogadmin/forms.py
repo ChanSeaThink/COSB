@@ -18,6 +18,9 @@ class blogCommentForm(forms.Form):
     email = forms.EmailField()
     comment = forms.CharField(widget = forms.Textarea)
     #contentid = forms.IntegerField()
+    def __init__(self, ch, *args, **kwargs):
+        super(blogCommentForm, self).__init__(*args, **kwargs)
+        self.fields['content'].choices = ch
     content = forms.ChoiceField()
 
 class fatherClassForm(forms.Form):
@@ -32,4 +35,4 @@ class childClassForm(forms.Form):
     def __init__(self, ch, *args, **kwargs):
         super(childClassForm, self).__init__(*args, **kwargs)
         self.fields['fatherclass'].choices = ch
-    fatherclass = forms.ChoiceField(choices = ())
+    fatherclass = forms.ChoiceField()
