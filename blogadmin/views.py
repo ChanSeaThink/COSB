@@ -112,5 +112,23 @@ def bc(request):
     ba_data = blogArticle.objects.all()
     for d in ba_data:
         ch.append((d.id, d.blogtitle))
-    form = blogCommentForm(ch)
+    if request.method == 'POST':
+        form = blogCommentForm(ch, request.POST)
+        if form.is_valid():
+            data = form.cleaned_data
+            blogArticleObj = blogArticle.objects.get(id = data['content'])
+            blogCommentObj = blogComment()
+            blogCommentObj.nickname = data['nickname']
+            blogCommentObj.email = data['email']
+            blogCommentObj.comment = data['comment']
+            blogCommentObj.createtime = datetime.now()
+            blogCommentObj.contentid = blogArticleObj
+            blogArticleObj.commenttimes += 1
+            blogCommentObj.save()
+            blogArticleObj.save()
+            return HttpResponse('Get it')
+        else:
+            return HttpResponse('error')
+    else:
+        form = blogCommentForm(ch)
     return render_to_response('inputdata.html',{'form':form})
